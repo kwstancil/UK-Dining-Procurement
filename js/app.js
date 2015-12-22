@@ -10,31 +10,45 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function showInfo(gData) {
     var map = Sheetsee.loadMap("map");
-    var stamenToner = L.tileLayer('http://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png', {
-        attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    var basemap = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+        subdomains: 'abcd',
+        maxZoom: 19
     }).addTo(map);
 
-    var optionsJSON = ["rowNumber","vendor", "type", "items", "ingredients", "money", "address", "city", "state", "zip"]
+    var optionsJSON = ["rowNumber","vendor", "type", "items", "ingredients", "money", "address", "city", "state", "zip", "typeingredients"]
     var geoJSON = Sheetsee.createGeoJSON(gData, optionsJSON)
     console.log(geoJSON);
 
-    // markerLayer = L.geoJson(geoJSON,{
-    //     pointToLayer: function(feature,latlng) {
-    //         var featureIcon = L.icon({
-    //             // Beer by Fabián Sanabria from the Noun Project
-    //             iconUrl:'img/beer.png',
-    //             iconSize: [18,18],
-    //             popupAnchor: [0, -9]
-    //         })
-    //         var marker = L.marker(latlng,{
-    //             icon: featureIcon
-    //         });
-    //         var popupContent = "<div style='color: whitesmoke;'><h2>" + feature.opts.name + "</h2><p>" + feature.opts.city + " | " + feature.opts.type + "</p><img class='establishmentIcon' src='" + feature.opts.icon + "'></div>"
-    //         marker.bindPopup(popupContent);
-    //         return marker
-    //     }
-    // }).addTo(map);
-markerLayer = L.geoJson(geoJSON).addTo(map);
+    function iconSelect (type, ingredients) {
+        return type == 'A' && ingredients == '1' ? '../img/blueCircle.svg':
+            type == 'A' && ingredients == '2' ? '../img/greenCircle.svg':
+            type == 'A' && ingredients == '3' ? '../img/yellowCircle.svg':
+            type == 'B' && ingredients == '1' ? '../img/blueTriangle.svg':
+            type == 'B' && ingredients == '2' ? '../img/greenTriangle.svg':
+            type == 'B' && ingredients == '3' ? '../img/yellowTriangle.svg':
+            type == 'C' && ingredients == '1' ? '../img/blueSquare.svg':
+            type == 'C' && ingredients == '2' ? '../img/greenSquare.svg':
+            type == 'C' && ingredients == '3' ? '../img/yellowSquare.svg':
+            '../img/1x1.png';
+    }
+
+    markerLayer = L.geoJson(geoJSON,{
+        pointToLayer: function(feature,latlng) {
+            var infotype = feature.opts.infotype;
+            var type = feature.opts.type;
+            var ingredients = feature.opts.ingredients;
+            var featureIcon = L.icon({
+                iconUrl: iconSelect(type, ingredients),
+                iconSize: [10,10]
+            })
+            var marker = L.marker(latlng,{
+                icon: featureIcon
+            });
+            return marker
+        }
+    }).addTo(map);
+// markerLayer = L.geoJson(geoJSON).addTo(map);
     map.fitBounds(markerLayer.getBounds())
 
     tableOptions = {
@@ -57,7 +71,7 @@ markerLayer = L.geoJson(geoJSON).addTo(map);
         
         //MAP
         var selectedCoords = [dataElement[0].lat, dataElement[0].long]
-        map.setView(selectedCoords, 17)
+        map.setView(selectedCoords, 14)
 
         // INFOPANE
         var selectedBeer = Sheetsee.ich.selectedBeer({
@@ -80,7 +94,7 @@ markerLayer = L.geoJson(geoJSON).addTo(map);
         
         // MAP
         selectedMarkerLocation = [dataElement[0].lat, dataElement[0].long]
-        map.setView(selectedMarkerLocation, 17)
+        map.setView(selectedMarkerLocation, 14)
         
         // INFOPANE
         $('#selectedBeer').html(selectedBeer).css("display", "inline")

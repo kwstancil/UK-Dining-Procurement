@@ -2,7 +2,7 @@
     <head>
     
     <!-- Meta  -->
-        <title>Spreadsheet Sorcery: 05_info-pane</title>
+        <title>UK Dining Procurement</title>
         <meta charset='utf-8'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -14,12 +14,31 @@
 <body>
 <!-- Main HTML structure -->
     <div id="wrapper">
-        <h1>Lexington Area Beer Establishments</h1>        
+        <h1>UK Dining Procurement</h1>        
         <div class="container">
             <div id="infoPane">
                 <div id="selectedBeer"></div>
             </div>
             <div id="map"></div>
+            <div id="legend">
+                <div class="container">
+                    <ul>
+                        <li><img src="../img/blueCircle.svg" width="10px" height="10px"> A1</li>
+                        <li><img src="../img/blueTriangle.svg" width="10px" height="10px"> A2</li>
+                        <li><img src="../img/blueSquare.svg" width="10px" height="10px"> A3</li>
+                    </ul>
+                    <ul>
+                        <li><img src="../img/greenCircle.svg" width="10px" height="10px"> B1</li>
+                        <li><img src="../img/greenTriangle.svg" width="10px" height="10px"> B2</li>
+                        <li><img src="../img/greenSquare.svg" width="10px" height="10px"> B3</li>
+                    </ul>
+                    <ul>
+                        <li><img src="../img/yellowCircle.svg" width="10px" height="10px"> C1</li>
+                        <li><img src="../img/yellowTriangle.svg" width="10px" height="10px"> C2</li>
+                        <li><img src="../img/yellowSquare.svg" width="10px" height="10px"> C3</li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <div class="container">
@@ -29,19 +48,17 @@
             <span class="noMatches">no matches</span>
             <div id="beerTable"></div>
         </div>
-        <div id="info" class="container">
-            <h3>About the map</h3>
-            <p>Data for this map were collected from <a href="http://www.lexbeerscene.com/" target="_blank">LexBeerScene.com's</a> directory of <a href="http://www.lexbeerscene.com/localestablishments" target="_blank">local beer establishments</a>. You can access the Google Spreadsheet of the data <a href="https://docs.google.com/spreadsheets/d/13Xd93PIiGvGh2JQ6uygnsUTTLAlJu7F7TE-doTy-5OY/edit#gid=1993162178" target="_blank">here</a></p>
-            <p>This map was primarily built using <a href="http://jlord.us/sheetsee.js/" target="_blank">SheetseeJS</a> and <a href="https://www.mapbox.com/mapbox.js/api/v2.2.3/" target="_blank">MapboxJS</a>/<a href="http://leafletjs.com/" target="_blank">LeafletJS</a>. The design and functionaliy draw heavily on <a href="https://twitter.com/jllord" target="_blank">Jessica Lord's</a> "Hack Spots" map (<a href="http://jlord.us/hack-spots/" target="_blank">map</a> | <a href="https://github.com/jlord/hack-spots" target="_blank">code</a>).</p>
-            <p>Icon Credit: <a href="https://thenounproject.com/search/?q=beer&i=124636" target="_blank">Beer by Fabián Sanabria from the Noun Project.</a></p>
-        </div>
+        <!-- <div id="info" class="container">
+            <h3>You could tite an explanatory section here</h3>
+            <p>You could put some text here</p>
+        </div> -->
     </div><!-- end wrapper -->
 
 <!-- Handlebar templates -->
     <!-- Info pane for selected spot -->
     <script id="selectedBeer" type="text/html">
         {{#rows}}
-            <h4>SELECTED SPOT</h4>
+            <h4>SELECTED VENDOR</h4>
             <h2>{{vendor}}</h2>
             <p>{{address}}<p>
             <p>{{city}}{{#state}}, {{state}}{{/state}}{{#zip}} {{zip}}{{/zip}}</p>
