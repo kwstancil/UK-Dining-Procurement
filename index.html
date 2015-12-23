@@ -62,16 +62,14 @@
             <p>{{city}}{{#state}}, {{state}}{{/state}}{{#zip}} {{zip}}{{/zip}}</p>
             <ul>
                 {{#items}}<li><span class="category">General Items Purchased by UK Dining:</span>{{items}}</li>{{/items}}
-            <ul>
                 {{#money}}<li><span class="category">Total Money Spent:</span>{{money}}</li>{{/money}}
-            </ul>
         {{/rows}}
     </script> 
 
     <!-- Table -->
     <script id="beerTable" type="text/html">
         <table>
-            <tr><th class="tHeader">Vendors (listed in order of total $ spent by UK Dining)</th></tr>
+            <tr><th class="tHeader">Vendors (listed from highest to lowest UK Dining expenditure)</th></tr>
             {{#rows}}
                 <tr id="{{rowNumber}}" class="beerRow"><td>{{vendor}}</td></tr>
             {{/rows}}
