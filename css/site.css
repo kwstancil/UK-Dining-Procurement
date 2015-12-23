@@ -28,7 +28,7 @@ a.button {
 
 #map {
 	height: 450px; 
-	max-width: 5800px; 
+	max-width: 580px; 
 	min-width: 350px; 
 	background: #DADADA;
 }
@@ -82,7 +82,7 @@ a.button {
 	padding: 0px;
 }
 #selectedBeer p {
-	line-height" 0; 
+	line-height: 0; 
 }
 #selectedBeer ul li {
 	line-height: 2;
