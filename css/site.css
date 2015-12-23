@@ -27,9 +27,9 @@ a.button {
 }
 
 #map {
-	height: 500px; 
-	max-width: 630px; 
-	min-width: 400px; 
+	height: 450px; 
+	max-width: 5800px; 
+	min-width: 350px; 
 	background: #DADADA;
 }
 
@@ -68,7 +68,7 @@ a.button {
 
 /*Info pane style*/
 #infoPane {
-	max-width: 250px; 
+	max-width: 300px; 
 	width: 100%; 
 	float: right; 
 	padding-top: 5px;
@@ -80,6 +80,12 @@ a.button {
 	list-style: none; 
 	margin-top: 12px 0px; 
 	padding: 0px;
+}
+#selectedBeer p {
+	line-height" 0; 
+}
+#selectedBeer ul li {
+	line-height: 2;
 }
 .category {
 	font-size:12px; 
