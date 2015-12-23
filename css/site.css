@@ -78,7 +78,7 @@ a.button {
 }
 #selectedBeer ul {
 	list-style: none; 
-	margin-top: 10px 0px; 
+	margin-top: 12px 0px; 
 	padding: 0px;
 }
 #selectedBeer p {
@@ -127,7 +127,7 @@ img.establishmentIcon {
 	background: transparent; 
 	overflow-x: auto; 
 	padding-bottom: 20px;
-	margin-top: 40px;
+	margin-top: 30px;
 }
 #beerTable table {
 	min-width: 400px;
