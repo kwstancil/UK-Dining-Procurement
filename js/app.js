@@ -24,10 +24,8 @@ function showInfo(gData) {
         return type == 'A' && ingredients == '1' ? 'img/blueCircle.svg':
             type == 'A' && ingredients == '2' ? 'img/blueTriangle.svg':
             type == 'A' && ingredients == '3' ? 'img/blueSquare.svg':
-            type == 'B' && ingredients == '1' ? 'img/greenCircle.svg':
             type == 'B' && ingredients == '2' ? 'img/greenTriangle.svg':
             type == 'B' && ingredients == '3' ? 'img/greenSquare.svg':
-            type == 'C' && ingredients == '1' ? 'img/yellowCircle.svg':
             type == 'C' && ingredients == '2' ? 'img/yellowTriangle.svg':
             type == 'C' && ingredients == '3' ? 'img/yellowSquare.svg':
             '../img/1x1.png';
@@ -40,7 +38,7 @@ function showInfo(gData) {
             var ingredients = feature.opts.ingredients;
             var featureIcon = L.icon({
                 iconUrl: iconSelect(type, ingredients),
-                iconSize: [10,10]
+                iconSize: [9,9]
             })
             var marker = L.marker(latlng,{
                 icon: featureIcon
@@ -71,7 +69,7 @@ function showInfo(gData) {
         
         //MAP
         var selectedCoords = [dataElement[0].lat, dataElement[0].long]
-        map.setView(selectedCoords, 10)
+        map.setView(selectedCoords, 12)
 
         // INFOPANE
         var selectedBeer = Sheetsee.ich.selectedBeer({
@@ -94,7 +92,7 @@ function showInfo(gData) {
         
         // MAP
         selectedMarkerLocation = [dataElement[0].lat, dataElement[0].long]
-        map.setView(selectedMarkerLocation, 10)
+        map.setView(selectedMarkerLocation, 12)
         
         // INFOPANE
         $('#selectedBeer').html(selectedBeer).css("display", "inline")
