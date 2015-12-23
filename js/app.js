@@ -21,15 +21,15 @@ function showInfo(gData) {
     console.log(geoJSON);
 
     function iconSelect (type, ingredients) {
-        return type == 'A' && ingredients == '1' ? '../img/blueCircle.svg':
-            type == 'A' && ingredients == '2' ? '../img/greenCircle.svg':
-            type == 'A' && ingredients == '3' ? '../img/yellowCircle.svg':
-            type == 'B' && ingredients == '1' ? '../img/blueTriangle.svg':
-            type == 'B' && ingredients == '2' ? '../img/greenTriangle.svg':
-            type == 'B' && ingredients == '3' ? '../img/yellowTriangle.svg':
-            type == 'C' && ingredients == '1' ? '../img/blueSquare.svg':
-            type == 'C' && ingredients == '2' ? '../img/greenSquare.svg':
-            type == 'C' && ingredients == '3' ? '../img/yellowSquare.svg':
+        return type == 'A' && ingredients == '1' ? 'img/blueCircle.svg':
+            type == 'A' && ingredients == '2' ? 'img/blueTriangle.svg':
+            type == 'A' && ingredients == '3' ? 'img/blueSquare.svg':
+            type == 'B' && ingredients == '1' ? 'img/greenCircle.svg':
+            type == 'B' && ingredients == '2' ? 'img/greenTriangle.svg':
+            type == 'B' && ingredients == '3' ? 'img/greenSquare.svg':
+            type == 'C' && ingredients == '1' ? 'img/yellowCircle.svg':
+            type == 'C' && ingredients == '2' ? 'img/yellowTriangle.svg':
+            type == 'C' && ingredients == '3' ? 'img/yellowSquare.svg':
             '../img/1x1.png';
     }
 
@@ -71,7 +71,7 @@ function showInfo(gData) {
         
         //MAP
         var selectedCoords = [dataElement[0].lat, dataElement[0].long]
-        map.setView(selectedCoords, 14)
+        map.setView(selectedCoords, 10)
 
         // INFOPANE
         var selectedBeer = Sheetsee.ich.selectedBeer({
@@ -94,7 +94,7 @@ function showInfo(gData) {
         
         // MAP
         selectedMarkerLocation = [dataElement[0].lat, dataElement[0].long]
-        map.setView(selectedMarkerLocation, 14)
+        map.setView(selectedMarkerLocation, 10)
         
         // INFOPANE
         $('#selectedBeer').html(selectedBeer).css("display", "inline")
