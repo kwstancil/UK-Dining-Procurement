@@ -85,7 +85,7 @@ a.button {
 	line-height: 0; 
 }
 #selectedBeer ul li {
-	line-height: 2;
+	margin-top: 10px;
 }
 .category {
 	font-size:12px; 
