@@ -85,7 +85,6 @@ a.button {
 	line-height: 0; 
 }
 #selectedBeer ul li {
-	line-height: 0;
 	margin-top: 10px;
 }
 .category {
@@ -128,6 +127,7 @@ img.establishmentIcon {
 	background: transparent; 
 	overflow-x: auto; 
 	padding-bottom: 20px;
+	margin-top: 50px;
 }
 #beerTable table {
 	min-width: 400px;
