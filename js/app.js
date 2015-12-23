@@ -69,7 +69,7 @@ function showInfo(gData) {
         
         //MAP
         var selectedCoords = [dataElement[0].lat, dataElement[0].long]
-        map.setView(selectedCoords, 13)
+        map.setView(selectedCoords, 14)
 
         // INFOPANE
         var selectedBeer = Sheetsee.ich.selectedBeer({
@@ -92,7 +92,7 @@ function showInfo(gData) {
         
         // MAP
         selectedMarkerLocation = [dataElement[0].lat, dataElement[0].long]
-        map.setView(selectedMarkerLocation, 13)
+        map.setView(selectedMarkerLocation, 14)
         
         // INFOPANE
         $('#selectedBeer').html(selectedBeer).css("display", "inline")
