@@ -2,7 +2,7 @@
     <head>
     
     <!-- Meta  -->
-        <title>UK Dining Procurement: KY Proud and Local Purchases, 2014-2015</title>
+        <title>UK Dining: KY Proud and Local Vendors (FY 15)</title>
         <meta charset='utf-8'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -14,7 +14,7 @@
 <body>
 <!-- Main HTML structure -->
     <div id="wrapper">
-        <h1>UK Dining Procurement: KY Proud and Local Purchases, 2014-2015</h1>        
+        <h1>UK Dining: KY Proud and Local Vendors (FY 15)</h1>        
         <div class="container">
             <div id="infoPane">
                 <div id="selectedBeer"></div>
@@ -23,17 +23,17 @@
             <div id="legend">
                 <div class="container">
                     <ul>
-                        <li><img src="img/blueCircle.svg" width="10px" height="10px"> A1</li>
-                        <li><img src="img/blueTriangle.svg" width="10px" height="10px"> A2</li>
-                        <li><img src="img/blueSquare.svg" width="10px" height="10px"> A3</li>
+                        <li><img src="img/blueCircle.svg" width="10px" height="10px"> KY Biz/Majority</li>
+                        <li><img src="img/blueTriangle.svg" width="10px" height="10px"> KY Biz/Some</li>
+                        <li><img src="img/blueSquare.svg" width="10px" height="10px"> KY Biz/None</li>
                     </ul>
                     <ul>
-                        <li><img src="img/greenTriangle.svg" width="10px" height="10px"> B2</li>
-                        <li><img src="img/greenSquare.svg" width="10px" height="10px"> B3</li>
+                        <li><img src="img/greenTriangle.svg" width="10px" height="10px"> Processor/Some</li>
+                        <li><img src="img/greenSquare.svg" width="10px" height="10px"> Processor/None</li>
                     </ul>
                     <ul>
-                        <li><img src="img/yellowTriangle.svg" width="10px" height="10px"> C2</li>
-                        <li><img src="img/yellowSquare.svg" width="10px" height="10px"> C3</li>
+                        <li><img src="img/yellowTriangle.svg" width="10px" height="10px"> Distributor/Some</li>
+                        <li><img src="img/yellowSquare.svg" width="10px" height="10px"> Distributor/None</li>
                     </ul>
                 </div>
             </div>
@@ -69,7 +69,7 @@
     <!-- Table -->
     <script id="beerTable" type="text/html">
         <table>
-            <tr><th class="tHeader">Vendors (listed from highest to lowest UK Dining expenditure)</th></tr>
+            <tr><th class="tHeader">Vendors (listed from highest to lowest expenditure)</th></tr>
             {{#rows}}
                 <tr id="{{rowNumber}}" class="beerRow"><td>{{vendor}}</td></tr>
             {{/rows}}
