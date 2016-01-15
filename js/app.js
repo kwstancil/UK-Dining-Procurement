@@ -24,6 +24,7 @@ function showInfo(gData) {
         return type == 'A' && ingredients == '1' ? 'img/blueCircle.svg':
             type == 'A' && ingredients == '2' ? 'img/blueTriangle.svg':
             type == 'A' && ingredients == '3' ? 'img/blueSquare.svg':
+            type == 'B' && ingredients == '1' ? 'img/greenCircle.svg':
             type == 'B' && ingredients == '2' ? 'img/greenTriangle.svg':
             type == 'B' && ingredients == '3' ? 'img/greenSquare.svg':
             type == 'C' && ingredients == '2' ? 'img/yellowTriangle.svg':
