@@ -16,7 +16,7 @@ function showInfo(gData) {
         maxZoom: 19
     }).addTo(map);
 
-    var optionsJSON = ["rowNumber","vendor", "type", "items", "ingredients", "money", "address", "city", "state", "zip", "typeingredients"]
+    var optionsJSON = ["rowNumber","vendor", "type", "items", "ingredients", "distributor", "address", "city", "state", "zip", "typeingredients"]
     var geoJSON = Sheetsee.createGeoJSON(gData, optionsJSON)
     console.log(geoJSON);
 
