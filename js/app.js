@@ -36,7 +36,7 @@ function showInfo(gData) {
         pointToLayer: function(feature,latlng) {
             var infotype = feature.opts.infotype;
             var type = feature.opts.type;
-            var ingredients = feature.opts.ingredients;
+            var ingredient score = feature.opts.ingredients;
             var featureIcon = L.icon({
                 iconUrl: iconSelect(type, ingredients),
                 iconSize: [9,9]
