@@ -20,7 +20,7 @@ function showInfo(gData) {
     var geoJSON = Sheetsee.createGeoJSON(gData, optionsJSON)
     console.log(geoJSON);
 
-    function iconSelect (type, ingredients) {
+    function iconSelect (type,ingredients) {
         return type == 'A' && ingredients == '1' ? 'img/blueCircle.svg':
             type == 'A' && ingredients == '2' ? 'img/blueTriangle.svg':
             type == 'A' && ingredients == '3' ? 'img/blueSquare.svg':
@@ -36,7 +36,7 @@ function showInfo(gData) {
         pointToLayer: function(feature,latlng) {
             var infotype = feature.opts.infotype;
             var type = feature.opts.type;
-            var ingredient score = feature.opts.ingredients;
+            var ingredients = feature.opts.ingredients;
             var featureIcon = L.icon({
                 iconUrl: iconSelect(type, ingredients),
                 iconSize: [9,9]
