@@ -16,18 +16,17 @@ function showInfo(gData) {
         maxZoom: 19
     }).addTo(map);
 
-    var optionsJSON = ["rowNumber","vendor", "type", "items", "ingredients", "money", "address", "city", "state", "zip", "typeingredients"]
+    var optionsJSON = ["rowNumber","vendor", "type", "items", "ingredients", "distributor", "address", "city", "state", "zip", "typeingredients"]
     var geoJSON = Sheetsee.createGeoJSON(gData, optionsJSON)
     console.log(geoJSON);
 
-    function iconSelect (type, ingredients) {
+    function iconSelect (type,ingredients) {
         return type == 'A' && ingredients == '1' ? 'img/blueCircle.svg':
             type == 'A' && ingredients == '2' ? 'img/blueTriangle.svg':
             type == 'A' && ingredients == '3' ? 'img/blueSquare.svg':
             type == 'B' && ingredients == '1' ? 'img/greenCircle.svg':
             type == 'B' && ingredients == '2' ? 'img/greenTriangle.svg':
             type == 'B' && ingredients == '3' ? 'img/greenSquare.svg':
-            type == 'C' && ingredients == '1' ? 'img/yellowCircle.svg':
             type == 'C' && ingredients == '2' ? 'img/yellowTriangle.svg':
             type == 'C' && ingredients == '3' ? 'img/yellowSquare.svg':
             '../img/1x1.png';
@@ -40,7 +39,7 @@ function showInfo(gData) {
             var ingredients = feature.opts.ingredients;
             var featureIcon = L.icon({
                 iconUrl: iconSelect(type, ingredients),
-                iconSize: [10,10]
+                iconSize: [9,9]
             })
             var marker = L.marker(latlng,{
                 icon: featureIcon
@@ -71,7 +70,7 @@ function showInfo(gData) {
         
         //MAP
         var selectedCoords = [dataElement[0].lat, dataElement[0].long]
-        map.setView(selectedCoords, 10)
+        map.setView(selectedCoords, 14)
 
         // INFOPANE
         var selectedBeer = Sheetsee.ich.selectedBeer({
@@ -94,7 +93,7 @@ function showInfo(gData) {
         
         // MAP
         selectedMarkerLocation = [dataElement[0].lat, dataElement[0].long]
-        map.setView(selectedMarkerLocation, 10)
+        map.setView(selectedMarkerLocation, 14)
         
         // INFOPANE
         $('#selectedBeer').html(selectedBeer).css("display", "inline")
@@ -114,4 +113,29 @@ function showInfo(gData) {
         // Center map and set zoom to include all the markers
         map.fitBounds(markerLayer.getBounds())
     })
+    addUI();
+    var tempLayer = L.layerGroup();
+    function addUI() {
+       
+        $('#legend .container li').on('click', function(e) {
+            var addAll = function() {
+                tempLayer.eachLayer(function(layer) {
+                    markerLayer.addLayer(layer);
+                });
+            }
+            addAll();
+            var targetId = $(this).attr('id');
+            if(targetId === 'all') {
+                addAll();
+            } else {
+                markerLayer.eachLayer(function(layer) {
+                    if(layer.feature.opts.type+layer.feature.opts.ingredients != targetId){
+                        tempLayer.addLayer(layer);
+                        markerLayer.removeLayer(layer);
+                    } 
+                });
+            }
+            
+        });
+    }
 }

@@ -2,7 +2,7 @@
     <head>
     
     <!-- Meta  -->
-        <title>UK Dining Procurement: KY Proud and Local Purchases, 2014-2015</title>
+        <title>UK Dining Sourcing: KY Proud and Local Vendors (FY 14-15)</title>
         <meta charset='utf-8'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -14,7 +14,7 @@
 <body>
 <!-- Main HTML structure -->
     <div id="wrapper">
-        <h1>UK Dining Procurement</h1>        
+        <h1>UK Dining Sourcing: KY Proud and Local Vendors (FY 14-15)</h1>        
         <div class="container">
             <div id="infoPane">
                 <div id="selectedBeer"></div>
@@ -23,19 +23,21 @@
             <div id="legend">
                 <div class="container">
                     <ul>
-                        <li><img src="img/blueCircle.svg" width="10px" height="10px"> A1</li>
-                        <li><img src="img/blueTriangle.svg" width="10px" height="10px"> A2</li>
-                        <li><img src="img/blueSquare.svg" width="10px" height="10px"> A3</li>
+                        <li id='A1'><img src="img/blueCircle.svg" width="10px" height="10px"> KY Business/Majority</li>
+                        <li id='A2'><img src="img/blueTriangle.svg" width="10px" height="10px"> KY Business/Mixed</li>
+                        <li id='A3'><img src="img/blueSquare.svg" width="10px" height="10px"> KY Business/None</li>
                     </ul>
                     <ul>
-                        <li><img src="img/greenCircle.svg" width="10px" height="10px"> B1</li>
-                        <li><img src="img/greenTriangle.svg" width="10px" height="10px"> B2</li>
-                        <li><img src="img/greenSquare.svg" width="10px" height="10px"> B3</li>
+                        <li id='B1'><img src="img/greenCircle.svg" width="10px" height="10px"> KY Processor/Majority</li>
+                        <li id='B2'><img src="img/greenTriangle.svg" width="10px" height="10px"> KY Processor/Mixed</li>
+                        <li id='B3'><img src="img/greenSquare.svg" width="10px" height="10px"> KY Processor/None</li>
                     </ul>
                     <ul>
-                        <li><img src="img/yellowCircle.svg" width="10px" height="10px"> C1</li>
-                        <li><img src="img/yellowTriangle.svg" width="10px" height="10px"> C2</li>
-                        <li><img src="img/yellowSquare.svg" width="10px" height="10px"> C3</li>
+                        <li id='C2'><img src="img/yellowTriangle.svg" width="10px" height="10px"> KY Distributor/Mixed</li>
+                        <li id='C3'><img src="img/yellowSquare.svg" width="10px" height="10px"> KY Distributor/None</li>
+                    </ul>
+                    <ul>
+                        <li id='all'><img src="img/beer.png" width="10px" height="10px"> ALL</li>
                     </ul>
                 </div>
             </div>
@@ -64,16 +66,14 @@
             <p>{{city}}{{#state}}, {{state}}{{/state}}{{#zip}} {{zip}}{{/zip}}</p>
             <ul>
                 {{#items}}<li><span class="category">General Items Purchased by UK Dining:</span>{{items}}</li>{{/items}}
-            <ul>
-                {{#money}}<li><span class="category">Total Money Spent:</span>{{money}}</li>{{/money}}
-            </ul>
+                {{#distributor}}<li><span class="category">Procurement Channel:</span>{{distributor}}</li>{{/distributor}}
         {{/rows}}
     </script> 
 
     <!-- Table -->
     <script id="beerTable" type="text/html">
         <table>
-            <tr><th class="tHeader">Vendors</th></tr>
+            <tr><th class="tHeader">Vendors (listed from highest to lowest expenditure)</th></tr>
             {{#rows}}
                 <tr id="{{rowNumber}}" class="beerRow"><td>{{vendor}}</td></tr>
             {{/rows}}
