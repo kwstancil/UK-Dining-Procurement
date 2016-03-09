@@ -109,7 +109,13 @@ img.establishmentIcon {
 	display: inline-block;
 	list-style-type: none;
 }
-
+#legend>.container>ul li {
+    
+}
+#legend>.container>ul li:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
 /*Info at bottom of page*/
 #info p {
 	font-size: 14px; 

@@ -113,4 +113,29 @@ function showInfo(gData) {
         // Center map and set zoom to include all the markers
         map.fitBounds(markerLayer.getBounds())
     })
+    addUI();
+    var tempLayer = L.layerGroup();
+    function addUI() {
+       
+        $('#legend .container li').on('click', function(e) {
+            var addAll = function() {
+                tempLayer.eachLayer(function(layer) {
+                    markerLayer.addLayer(layer);
+                });
+            }
+            addAll();
+            var targetId = $(this).attr('id');
+            if(targetId === 'all') {
+                addAll();
+            } else {
+                markerLayer.eachLayer(function(layer) {
+                    if(layer.feature.opts.type+layer.feature.opts.ingredients != targetId){
+                        tempLayer.addLayer(layer);
+                        markerLayer.removeLayer(layer);
+                    } 
+                });
+            }
+            
+        });
+    }
 }
