@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     var gData
     var URL = "11aWWSHARNjsun4psp05vNBvVw8h_vRTf3ozPF0J9Vgc"
-    Tabletop.init({ 
-        key: URL, 
-        callback: showInfo, 
-        simpleSheet: true 
+    Tabletop.init({
+        key: URL,
+        callback: showInfo,
+        simpleSheet: true
     })
 })
 
@@ -51,23 +51,23 @@ function showInfo(gData) {
     map.fitBounds(markerLayer.getBounds())
 
     tableOptions = {
-        "data": gData, 
-        "tableDiv": "#beerTable", 
+        "data": gData,
+        "tableDiv": "#beerTable",
         "filterDiv": "#tableFilter"
     }
 
     Sheetsee.makeTable(tableOptions)
     Sheetsee.initiateTableFilter(tableOptions)
-     
+
     // TABLE CLICK
     $('.beerRow').live("click", function(event) {
         //TABLE
         $('.beerRow').removeClass("selectedRow")
         var rowNumber = $(this).closest("tr").attr("id")
         $('#' + rowNumber).addClass("selectedRow")
-        
+
         var dataElement = Sheetsee.getMatches(gData, rowNumber, "rowNumber")
-        
+
         //MAP
         var selectedCoords = [dataElement[0].lat, dataElement[0].long]
         map.setView(selectedCoords, 14)
@@ -90,11 +90,11 @@ function showInfo(gData) {
         var selectedBeer = Sheetsee.ich.selectedBeer({
             rows: dataElement
         })
-        
+
         // MAP
         selectedMarkerLocation = [dataElement[0].lat, dataElement[0].long]
         map.setView(selectedMarkerLocation, 14)
-        
+
         // INFOPANE
         $('#selectedBeer').html(selectedBeer).css("display", "inline")
     })
@@ -104,7 +104,7 @@ function showInfo(gData) {
         // TABLE
         // Clear whatever row is selected of the .selectedRow style
         $('.beerRow').removeClass("selectedRow")
-        
+
         // INFOPANE
         // Clear the infopane of the info about the most recently selected beer place
         $('#selectedBeer').css("display", "none")
@@ -113,4 +113,29 @@ function showInfo(gData) {
         // Center map and set zoom to include all the markers
         map.fitBounds(markerLayer.getBounds())
     })
+    addUI();
+    var tempLayer = L.layerGroup();
+    function addUI() {
+
+        $('#legend .container li').on('click', function(e) {
+            var addAll = function() {
+                tempLayer.eachLayer(function(layer) {
+                    markerLayer.addLayer(layer);
+                });
+            }
+            addAll();
+            var targetId = $(this).attr('id');
+            if(targetId === 'all') {
+                addAll();
+            } else {
+                markerLayer.eachLayer(function(layer) {
+                    if(layer.feature.opts.type+layer.feature.opts.ingredients != targetId){
+                        tempLayer.addLayer(layer);
+                        markerLayer.removeLayer(layer);
+                    }
+                });
+            }
+
+        });
+    }
 }
