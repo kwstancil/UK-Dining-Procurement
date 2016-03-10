@@ -1,11 +1,11 @@
 /* Page Specific CSS */
 
 body {
-	font-family: "Open Sans", Arial, sans-serif; 
-	background: #343434; 
-	color: whitesmoke; 
-	font-size: 12px; 
-	margin: 0px; 
+	font-family: "Open Sans", Arial, sans-serif;
+	background: #343434;
+	color: whitesmoke;
+	font-size: 12px;
+	margin: 0px;
 	padding: 20px 20px 20px 20px;
 }
 
@@ -22,22 +22,22 @@ a.button {
 }
 
 #wrapper {
-	margin: 0px auto; 
-	max-width: 900px; 
+	margin: 0px auto;
+	max-width: 900px;
 }
 
 #map {
-	height: 450px; 
-	max-width: 580px; 
-	min-width: 350px; 
+	height: 450px;
+	max-width: 580px;
+	min-width: 350px;
 	background: #DADADA;
 }
 
 .container {
 	margin: 24px 0px;
 }
-#tableFilter { 
-	color: #343434; 
+#tableFilter {
+	color: #343434;
 }
 
 .noMatches {
@@ -68,27 +68,27 @@ a.button {
 
 /*Info pane style*/
 #infoPane {
-	max-width: 300px; 
-	width: 100%; 
-	float: right; 
+	max-width: 300px;
+	width: 100%;
+	float: right;
 	padding-top: 5px;
 }
 #selectedBeer {
 	display: none;
 }
 #selectedBeer ul {
-	list-style: none; 
-	margin-top: 12px 0px; 
+	list-style: none;
+	margin-top: 12px 0px;
 	padding: 0px;
 }
 #selectedBeer p {
-	line-height: 0; 
+	line-height: 0;
 }
 #selectedBeer ul li {
 	margin-top: 10px;
 }
 .category {
-	font-size:12px; 
+	font-size:12px;
 	padding-right: 6px;
 }
 
@@ -98,7 +98,7 @@ img.establishmentIcon {
 }
 
 #legend {
-	max-width: 530px; 
+	max-width: 530px;
 }
 #legend>.container {
 	margin-left: auto;
@@ -109,12 +109,18 @@ img.establishmentIcon {
 	display: inline-block;
 	list-style-type: none;
 }
+#legend>.container>ul li {
 
+}
+#legend>.container>ul li:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
 /*Info at bottom of page*/
 #info p {
-	font-size: 14px; 
-	padding: 4px; 
-	line-height: 19px; 
+	font-size: 14px;
+	padding: 4px;
+	line-height: 19px;
 	font-weight: 300;
 }
 #info {
@@ -123,9 +129,9 @@ img.establishmentIcon {
 
 /*Table style*/
 #beerTable {
-	cursor: pointer; 
-	background: transparent; 
-	overflow-x: auto; 
+	cursor: pointer;
+	background: transparent;
+	overflow-x: auto;
 	padding-bottom: 20px;
 	margin-top: 30px;
 }
@@ -136,8 +142,8 @@ img.establishmentIcon {
 	color: #1DE9B6;
 }
 .tHeader::after {
-	content: " \2193 \2191 "; 
-	font-size: 10px; 
+	content: " \2193 \2191 ";
+	font-size: 10px;
 	padding-left: 3px;
 }
 .beerRow:hover {
@@ -156,19 +162,18 @@ img.establishmentIcon {
 /*Style based on screen width*/
 @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 320px) and (max-width: 1024px) {
   body {
-  	border: 20px #F8F8F8 solid; 
-  	margin: 0px; 
+  	border: 20px #F8F8F8 solid;
+  	margin: 0px;
   	padding: 20px 20px 80px 20px;
   }
   #tableFilter, .clear, .resetMap {
   	display: none;
   }
   /*#wrapper {
-  	max-width: 460px; 
+  	max-width: 460px;
   	padding-top: 20px;
   }*/
   #beerTable, #map, #legend {
   	min-width: 224px;
   }
 }
-
